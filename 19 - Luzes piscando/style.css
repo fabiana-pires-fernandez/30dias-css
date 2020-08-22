@@ -1,0 +1,126 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	width: 100%;
+	min-height: 100vh;
+	background-color: black;
+	overflow: hidden; 
+	/* Overflow se é necessário cortar o conteúdo ou adicionar barras de rolagem quando o conteúdo de um elemento é muito grande para caber na área especificada;
+	 hidden: o estouro é cortado e o resto do conteúdo ficará invisível */
+}
+
+.brilho {
+	position: relative;
+	/* está posicionado em relação à sua posição normal; definir as propriedades 
+	superior, direita, inferior e esquerda de um elemento relativamente 
+	posicionado fará com que ele seja ajustado para longe de sua posição normal */
+	min-width: 750px;
+	height: 750;
+	margin: -150px;
+	transform-origin: right;
+	animation: corMudando 5s linear infinite;
+}
+
+@keyframes corMudando {
+	0% {
+		filter: hue-rotate(0deg);
+		/* filter: define efeitos visuais (como desfoque e saturação) para um elemento */
+		transform: rotate(0deg);	
+	}
+	100% {
+		filter: hue-rotate(360deg);
+		transform: rotate(360deg);	
+	}
+}
+
+.brilho:nth-child(even) {
+	transform-origin: left;
+}
+
+.brilho span {
+	position: absolute;
+	top: calc(80px * var(--i));
+	left: calc(80px * var(--i));
+	bottom: calc(80px * var(--i));
+	right: calc(80px * var(--i));
+}
+
+/* :before: insere algo antes do conteúdo de cada elemento selecionado.*/
+.brilho span:before {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: -8px;
+	width: 15px;
+	height: 15px;
+	background-color: #f00;
+	border-radius: 50%;
+}
+
+/* :nth-child(3n + 1): O selector corresponde a cada elemento que é o n º criança, 
+	independentemente do tipo, de seu pai.:nth-child(n)
+	n pode ser um número, uma palavra-chave ou uma fórmula.*/
+.brilho span:nth-child(3n + 1):before {
+    background: rgba(134,255,0,1);
+    box-shadow: 0 0 20px rgba(134,255,0,1),
+                0 0 40px rgba(134,255,0,1),
+                0 0 60px rgba(134,255,0,1),
+                0 0 80px rgba(134,255,0,1),
+                0 0 0 8px rgba(134,255,0,.1);
+   /* box-shadow: anexa uma ou mais sombras a um elemento */
+}
+
+.brilho span:nth-child(3n + 2):before {
+    background: rgba(255,214,0,1);
+    box-shadow: 0 0 20px rgba(255,214,0,1),
+                0 0 40px rgba(255,214,0,1),
+                0 0 60px rgba(255,214,0,1),
+                0 0 80px rgba(255,214,0,1),
+                0 0 0 8px rgba(255,214,0,.1);
+}
+
+.brilho span:nth-child(3n + 3):before {
+    background: rgba(0,226,255,1);
+    box-shadow: 0 0 20px rgba(0,226,255,1),
+                0 0 40px rgba(0,226,255,1),
+                0 0 60px rgba(0,226,255,1),
+                0 0 80px rgba(0,226,255,1),
+                0 0 0 8px rgba(0,226,255,.1);
+}
+
+.brilho span:nth-child(3n+1) {
+    animation: animate 10s alternate infinite;
+}
+
+.brilho span:nth-child(3n+2) {
+    animation: animate-reverse 3s alternate infinite;
+}
+
+.brilho span:nth-child(3n+3) {
+    animation: animate 8s alternate infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-reverse {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
