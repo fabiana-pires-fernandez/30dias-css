@@ -1,0 +1,41 @@
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	animation: bgchange 20s infinite;
+}
+
+h1 {
+	font-size: 70px;
+	text-align: center;
+	text-transform: capitalize;
+	color: white;
+}
+
+@keyframes bgchange {
+	0% {
+		background-color: ##161616;	
+	}
+	10% {
+		background-color: #944012;	
+	}
+	20% {
+		background-color: #ff2323;	
+	}
+	30% {
+		background-color: #fd7600;	
+	}
+	40% {
+		background-color: #ecdc00;	
+	}
+	60% {
+		background-color: #007a01;	
+	}
+	80% {
+		background-color: #001696;	
+	}
+	100% {
+		background-color: #b5019e;	
+	}
+}
