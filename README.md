@@ -11,7 +11,7 @@
 <p>Projeto visa realizar 30 projetos com CSS.</p>
 <p>Github do projeto original: https://github.com/MilenaCarecho/30diasDeCSS</p>
 <h4>:star: Status do projeto:</h4>
-:arrow_right: Em andamento
+:arrow_right: Concluído
 <br>
 <br>
 <br>
